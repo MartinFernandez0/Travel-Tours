@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build TourismArg
+name: Build and deploy ASP.Net Core app to Azure Web App - Tourismarg
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
 
@@ -51,15 +51,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C2F14FBFE4D14FC796F6F45CC8DFC55C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0994474AAC6A4AC3A39A2AF607A18F18 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0FB5F774516E493F942091AD375203F5 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_302B7BB3E29441808DD74B528E631AF4 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CEB29AAE81754539A9CD9CDC54D4B4CF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6FBE099AB3CF4B82B3790970A522E530 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'TourismArg'
+          app-name: 'Tourismarg'
           slot-name: 'Production'
           package: .
           
