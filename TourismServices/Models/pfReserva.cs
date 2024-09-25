@@ -13,6 +13,7 @@ namespace TourismServices.Models
         public int ID { get; set; }
         public int AdministradorID { get; set; }
         public int ItinerarioID { get; set; }
+        public int ClienteID { get; set; }
 
         [Required]
         public EstadoReservaEnum EstadoReservaEnum { get; set; }

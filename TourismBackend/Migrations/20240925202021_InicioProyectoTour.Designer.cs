@@ -12,7 +12,7 @@ using TourismBackend.DataContext;
 namespace TourismBackend.Migrations
 {
     [DbContext(typeof(TourismContext))]
-    [Migration("20240925194617_InicioProyectoTour")]
+    [Migration("20240925202021_InicioProyectoTour")]
     partial class InicioProyectoTour
     {
         /// <inheritdoc />
@@ -56,7 +56,7 @@ namespace TourismBackend.Migrations
                         {
                             ID = 1,
                             Descripcion = "Tour guiado a la Torre Eiffel",
-                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5641),
+                            Fecha = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8459),
                             ItinerarioID = 1,
                             NombreActividad = "Visita a la Torre Eiffel"
                         },
@@ -64,7 +64,7 @@ namespace TourismBackend.Migrations
                         {
                             ID = 2,
                             Descripcion = "Crucero por el río Hudson",
-                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5643),
+                            Fecha = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8461),
                             ItinerarioID = 2,
                             NombreActividad = "Paseo en barco por el Hudson"
                         });
@@ -105,20 +105,91 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            Apellido = "Rodríguez",
-                            Email = "carlos.rodriguez@example.com",
-                            FechaRegistro = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5484),
-                            Nombre = "Carlos",
-                            Telefono = "12345678"
+                            Apellido = "Fernandez",
+                            Email = "martin_fernandez@example.com",
+                            FechaRegistro = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8187),
+                            Nombre = "Martin",
+                            Telefono = "3498479331"
+                        });
+                });
+
+            modelBuilder.Entity("TourismServices.Models.pfCliente", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Apellido")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Documento")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("pfClientes");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Apellido = "Apellido1",
+                            Documento = "123456789",
+                            Email = "cliente1@example.com",
+                            Nombre = "Cliente1",
+                            Telefono = "1234567890"
                         },
                         new
                         {
                             ID = 2,
-                            Apellido = "Fernández",
-                            Email = "maria.fernandez@example.com",
-                            FechaRegistro = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5497),
-                            Nombre = "María",
-                            Telefono = "12345678"
+                            Apellido = "Apellido2",
+                            Documento = "987654321",
+                            Email = "cliente2@example.com",
+                            Nombre = "Cliente2",
+                            Telefono = "0987654321"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Apellido = "Apellido3",
+                            Documento = "456789123",
+                            Email = "cliente3@example.com",
+                            Nombre = "Cliente3",
+                            Telefono = "4567891230"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Apellido = "Apellido4",
+                            Documento = "321654987",
+                            Email = "cliente4@example.com",
+                            Nombre = "Cliente4",
+                            Telefono = "3216549870"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Apellido = "Apellido5",
+                            Documento = "789123456",
+                            Email = "cliente5@example.com",
+                            Nombre = "Cliente5",
+                            Telefono = "7891234560"
                         });
                 });
 
@@ -197,7 +268,7 @@ namespace TourismBackend.Migrations
                             ID = 1,
                             CategoriaGastoEnum = 0,
                             Descripcion = "Hotel en París",
-                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5667),
+                            Fecha = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8497),
                             ItinerarioID = 1,
                             Monto = 100.00m
                         },
@@ -206,7 +277,7 @@ namespace TourismBackend.Migrations
                             ID = 2,
                             CategoriaGastoEnum = 1,
                             Descripcion = "Comida en Nueva York",
-                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5785),
+                            Fecha = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8499),
                             ItinerarioID = 2,
                             Monto = 50.00m
                         });
@@ -244,16 +315,16 @@ namespace TourismBackend.Migrations
                             ID = 1,
                             Descripcion = "Viaje a París",
                             Destino = "París",
-                            FechaRegreso = new DateTime(2024, 10, 9, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5826),
-                            FechaSalida = new DateTime(2024, 10, 2, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5819)
+                            FechaRegreso = new DateTime(2024, 10, 9, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8533),
+                            FechaSalida = new DateTime(2024, 10, 2, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8522)
                         },
                         new
                         {
                             ID = 2,
                             Descripcion = "Viaje a Nueva York",
                             Destino = "Nueva York",
-                            FechaRegreso = new DateTime(2024, 10, 23, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5828),
-                            FechaSalida = new DateTime(2024, 10, 16, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5827)
+                            FechaRegreso = new DateTime(2024, 10, 23, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8536),
+                            FechaSalida = new DateTime(2024, 10, 16, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8535)
                         });
                 });
 
@@ -266,6 +337,9 @@ namespace TourismBackend.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<int>("AdministradorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClienteID")
                         .HasColumnType("int");
 
                     b.Property<int>("EstadoReservaEnum")
@@ -285,18 +359,11 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            AdministradorID = 1,
+                            AdministradorID = 0,
+                            ClienteID = 1,
                             EstadoReservaEnum = 0,
-                            FechaReserva = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5850),
+                            FechaReserva = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8558),
                             ItinerarioID = 1
-                        },
-                        new
-                        {
-                            ID = 2,
-                            AdministradorID = 2,
-                            EstadoReservaEnum = 1,
-                            FechaReserva = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5852),
-                            ItinerarioID = 2
                         });
                 });
 
@@ -309,6 +376,9 @@ namespace TourismBackend.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<int>("AdministradorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClienteID")
                         .HasColumnType("int");
 
                     b.Property<int>("ConfirmacionPagoEnum")
@@ -334,9 +404,10 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            AdministradorID = 1,
+                            AdministradorID = 0,
+                            ClienteID = 1,
                             ConfirmacionPagoEnum = 1,
-                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5874),
+                            Fecha = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8581),
                             FormaDePagoEnum = 1,
                             ItinerarioID = 1,
                             Monto = 1500.00m
@@ -344,9 +415,10 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 2,
-                            AdministradorID = 2,
+                            AdministradorID = 0,
+                            ClienteID = 2,
                             ConfirmacionPagoEnum = 2,
-                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5877),
+                            Fecha = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8584),
                             FormaDePagoEnum = 2,
                             ItinerarioID = 2,
                             Monto = 2000.00m
@@ -354,9 +426,10 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 3,
-                            AdministradorID = 1,
+                            AdministradorID = 0,
+                            ClienteID = 3,
                             ConfirmacionPagoEnum = 3,
-                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5879),
+                            Fecha = new DateTime(2024, 9, 25, 17, 20, 19, 378, DateTimeKind.Local).AddTicks(8586),
                             FormaDePagoEnum = 3,
                             ItinerarioID = 1,
                             Monto = 500.00m

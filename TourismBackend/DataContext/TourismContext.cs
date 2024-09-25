@@ -21,6 +21,8 @@ namespace TourismBackend.DataContext
         public DbSet<pfItinerario> pfItinerarios { get; set; }
         public DbSet<pfReserva> pfReservas { get; set; }
         public DbSet<pfTransaccion> pfTransacciones { get; set; }
+        public DbSet<pfCliente> pfClientes { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,19 +41,10 @@ namespace TourismBackend.DataContext
                 new pfAdministrador
                 {
                     ID = 1,
-                    Nombre = "Carlos",
-                    Apellido = "Rodríguez",
-                    Email = "carlos.rodriguez@example.com",
-                    Telefono = "12345678",
-                    FechaRegistro = DateTime.Now
-                },
-                new pfAdministrador
-                {
-                    ID = 2,
-                    Nombre = "María",
-                    Apellido = "Fernández",
-                    Email = "maria.fernandez@example.com",
-                    Telefono = "12345678",
+                    Nombre = "Martin",
+                    Apellido = "Fernandez",
+                    Email = "martin_fernandez@example.com",
+                    Telefono = "3498479331",
                     FechaRegistro = DateTime.Now
                 }
             );
@@ -142,18 +135,10 @@ namespace TourismBackend.DataContext
                 new pfReserva
                 {
                     ID = 1,
-                    AdministradorID = 1,
+                    ClienteID = 1,
                     ItinerarioID = 1,
                     FechaReserva = DateTime.Now,
                     EstadoReservaEnum = EstadoReservaEnum.Confirmada
-                },
-                new pfReserva
-                {
-                    ID = 2,
-                    AdministradorID = 2,
-                    ItinerarioID = 2,
-                    FechaReserva = DateTime.Now,
-                    EstadoReservaEnum = EstadoReservaEnum.Pendiente
                 }
             );
 
@@ -164,7 +149,7 @@ namespace TourismBackend.DataContext
                     ID = 1,
                     Monto = 1500.00m,
                     Fecha = DateTime.Now,
-                    AdministradorID = 1,
+                    ClienteID = 1,
                     ItinerarioID = 1,
                     ConfirmacionPagoEnum = ConfirmacionPagoEnum.Confirmado,
                     FormaDePagoEnum = FormaPagoEnum.TarjetaDeCredito
@@ -174,7 +159,7 @@ namespace TourismBackend.DataContext
                     ID = 2,
                     Monto = 2000.00m,
                     Fecha = DateTime.Now,
-                    AdministradorID = 2,
+                    ClienteID = 2,
                     ItinerarioID = 2,
                     ConfirmacionPagoEnum = ConfirmacionPagoEnum.Rechazado,
                     FormaDePagoEnum = FormaPagoEnum.TarjetaDeDebito
@@ -184,12 +169,62 @@ namespace TourismBackend.DataContext
                     ID = 3,
                     Monto = 500.00m,
                     Fecha = DateTime.Now,
-                    AdministradorID = 1,
+                    ClienteID = 3,
                     ItinerarioID = 1,
                     ConfirmacionPagoEnum = ConfirmacionPagoEnum.Reembolsado,
                     FormaDePagoEnum = FormaPagoEnum.TransferenciaBancaria
                 }
             );
+
+            // Datos semilla para pfClientes
+            modelBuilder.Entity<pfCliente>().HasData(
+                new pfCliente
+                {
+                    ID = 1,
+                    Nombre = "Cliente1",
+                    Apellido = "Apellido1",
+                    Documento = "123456789",
+                    Email = "cliente1@example.com",
+                    Telefono = "1234567890"
+                },
+                new pfCliente
+                {
+                    ID = 2,
+                    Nombre = "Cliente2",
+                    Apellido = "Apellido2",
+                    Documento = "987654321",
+                    Email = "cliente2@example.com",
+                    Telefono = "0987654321"
+                },
+                new pfCliente
+                {
+                    ID = 3,
+                    Nombre = "Cliente3",
+                    Apellido = "Apellido3",
+                    Documento = "456789123",
+                    Email = "cliente3@example.com",
+                    Telefono = "4567891230"
+                },
+                new pfCliente
+                {
+                    ID = 4,
+                    Nombre = "Cliente4",
+                    Apellido = "Apellido4",
+                    Documento = "321654987",
+                    Email = "cliente4@example.com",
+                    Telefono = "3216549870"
+                },
+                new pfCliente
+                {
+                    ID = 5,
+                    Nombre = "Cliente5",
+                    Apellido = "Apellido5",
+                    Documento = "789123456",
+                    Email = "cliente5@example.com",
+                    Telefono = "7891234560"
+                }
+            );
+
 
             OnModelCreatingPartial(modelBuilder);
 
