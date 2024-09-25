@@ -11,7 +11,7 @@ namespace TourismServices.Models
     public class pfReserva
     {
         public int ID { get; set; }
-        public int ClienteID { get; set; }
+        public int AdministradorID { get; set; }
         public int ItinerarioID { get; set; }
 
         [Required]

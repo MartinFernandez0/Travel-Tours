@@ -12,7 +12,7 @@ using TourismBackend.DataContext;
 namespace TourismBackend.Migrations
 {
     [DbContext(typeof(TourismContext))]
-    [Migration("20240923181440_InicioProyectoTour")]
+    [Migration("20240925194617_InicioProyectoTour")]
     partial class InicioProyectoTour
     {
         /// <inheritdoc />
@@ -56,7 +56,7 @@ namespace TourismBackend.Migrations
                         {
                             ID = 1,
                             Descripcion = "Tour guiado a la Torre Eiffel",
-                            Fecha = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6906),
+                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5641),
                             ItinerarioID = 1,
                             NombreActividad = "Visita a la Torre Eiffel"
                         },
@@ -64,7 +64,7 @@ namespace TourismBackend.Migrations
                         {
                             ID = 2,
                             Descripcion = "Crucero por el río Hudson",
-                            Fecha = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6909),
+                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5643),
                             ItinerarioID = 2,
                             NombreActividad = "Paseo en barco por el Hudson"
                         });
@@ -107,7 +107,7 @@ namespace TourismBackend.Migrations
                             ID = 1,
                             Apellido = "Rodríguez",
                             Email = "carlos.rodriguez@example.com",
-                            FechaRegistro = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6853),
+                            FechaRegistro = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5484),
                             Nombre = "Carlos",
                             Telefono = "12345678"
                         },
@@ -116,67 +116,9 @@ namespace TourismBackend.Migrations
                             ID = 2,
                             Apellido = "Fernández",
                             Email = "maria.fernandez@example.com",
-                            FechaRegistro = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6856),
+                            FechaRegistro = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5497),
                             Nombre = "María",
                             Telefono = "12345678"
-                        });
-                });
-
-            modelBuilder.Entity("TourismServices.Models.pfCliente", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Apellido")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("FechaRegistro")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Notas")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("pfClientes");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Apellido = "Pérez",
-                            Email = "juan.perez@example.com",
-                            FechaRegistro = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6604),
-                            Nombre = "Juan",
-                            Notas = "Cliente frecuente",
-                            Telefono = "123456789"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Apellido = "García",
-                            Email = "ana.garcia@example.com",
-                            FechaRegistro = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6617),
-                            Nombre = "Ana",
-                            Notas = "Interesada en viajes a Europa",
-                            Telefono = "987654321"
                         });
                 });
 
@@ -221,70 +163,6 @@ namespace TourismBackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TourismServices.Models.pfEmpleado", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Apellido")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("FechaContratacion")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Notas")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Rol")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("pfEmpleados");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Apellido = "Martínez",
-                            Email = "luis.martinez@example.com",
-                            FechaContratacion = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6822),
-                            Nombre = "Luis",
-                            Notas = "Empleado con más ventas",
-                            Rol = "Agente de viajes",
-                            Telefono = "123123123"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Apellido = "Lopez",
-                            Email = "laura.lopez@example.com",
-                            FechaContratacion = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6824),
-                            Nombre = "Laura",
-                            Notas = "Empleado con más reservas",
-                            Rol = "Agente de viajes",
-                            Telefono = "321321321"
-                        });
-                });
-
             modelBuilder.Entity("TourismServices.Models.pfGasto", b =>
                 {
                     b.Property<int>("ID")
@@ -319,7 +197,7 @@ namespace TourismBackend.Migrations
                             ID = 1,
                             CategoriaGastoEnum = 0,
                             Descripcion = "Hotel en París",
-                            Fecha = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6937),
+                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5667),
                             ItinerarioID = 1,
                             Monto = 100.00m
                         },
@@ -328,7 +206,7 @@ namespace TourismBackend.Migrations
                             ID = 2,
                             CategoriaGastoEnum = 1,
                             Descripcion = "Comida en Nueva York",
-                            Fecha = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6940),
+                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5785),
                             ItinerarioID = 2,
                             Monto = 50.00m
                         });
@@ -366,16 +244,16 @@ namespace TourismBackend.Migrations
                             ID = 1,
                             Descripcion = "Viaje a París",
                             Destino = "París",
-                            FechaRegreso = new DateTime(2024, 10, 7, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6973),
-                            FechaSalida = new DateTime(2024, 9, 30, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6966)
+                            FechaRegreso = new DateTime(2024, 10, 9, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5826),
+                            FechaSalida = new DateTime(2024, 10, 2, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5819)
                         },
                         new
                         {
                             ID = 2,
                             Descripcion = "Viaje a Nueva York",
                             Destino = "Nueva York",
-                            FechaRegreso = new DateTime(2024, 10, 21, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6976),
-                            FechaSalida = new DateTime(2024, 10, 14, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(6976)
+                            FechaRegreso = new DateTime(2024, 10, 23, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5828),
+                            FechaSalida = new DateTime(2024, 10, 16, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5827)
                         });
                 });
 
@@ -387,7 +265,7 @@ namespace TourismBackend.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("ClienteID")
+                    b.Property<int>("AdministradorID")
                         .HasColumnType("int");
 
                     b.Property<int>("EstadoReservaEnum")
@@ -407,17 +285,17 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            ClienteID = 1,
+                            AdministradorID = 1,
                             EstadoReservaEnum = 0,
-                            FechaReserva = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(7003),
+                            FechaReserva = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5850),
                             ItinerarioID = 1
                         },
                         new
                         {
                             ID = 2,
-                            ClienteID = 2,
+                            AdministradorID = 2,
                             EstadoReservaEnum = 1,
-                            FechaReserva = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(7005),
+                            FechaReserva = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5852),
                             ItinerarioID = 2
                         });
                 });
@@ -430,7 +308,7 @@ namespace TourismBackend.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("ClienteID")
+                    b.Property<int>("AdministradorID")
                         .HasColumnType("int");
 
                     b.Property<int>("ConfirmacionPagoEnum")
@@ -456,9 +334,9 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            ClienteID = 1,
+                            AdministradorID = 1,
                             ConfirmacionPagoEnum = 1,
-                            Fecha = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(7031),
+                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5874),
                             FormaDePagoEnum = 1,
                             ItinerarioID = 1,
                             Monto = 1500.00m
@@ -466,9 +344,9 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 2,
-                            ClienteID = 2,
+                            AdministradorID = 2,
                             ConfirmacionPagoEnum = 2,
-                            Fecha = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(7033),
+                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5877),
                             FormaDePagoEnum = 2,
                             ItinerarioID = 2,
                             Monto = 2000.00m
@@ -476,9 +354,9 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 3,
-                            ClienteID = 1,
+                            AdministradorID = 1,
                             ConfirmacionPagoEnum = 3,
-                            Fecha = new DateTime(2024, 9, 23, 15, 14, 36, 201, DateTimeKind.Local).AddTicks(7036),
+                            Fecha = new DateTime(2024, 9, 25, 16, 46, 16, 552, DateTimeKind.Local).AddTicks(5879),
                             FormaDePagoEnum = 3,
                             ItinerarioID = 1,
                             Monto = 500.00m

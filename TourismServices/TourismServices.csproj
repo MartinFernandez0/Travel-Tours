@@ -14,5 +14,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore" Version="8.0.5" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Class\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
 	
 </Project>

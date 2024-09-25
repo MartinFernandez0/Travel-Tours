@@ -10,7 +10,7 @@ namespace TourismServices.Models
     public class pfTransaccion
     {
         public int ID { get; set; }
-        public int ClienteID { get; set; }
+        public int AdministradorID { get; set; }
         public int ItinerarioID { get; set; }
         public FormaPagoEnum FormaDePagoEnum { get; set; }
         public ConfirmacionPagoEnum ConfirmacionPagoEnum { get; set; }

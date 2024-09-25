@@ -16,9 +16,7 @@ namespace TourismBackend.DataContext
         // DbSets para tus modelos en el orden especificado
         public DbSet<pfActividad> pfActividades { get; set; }
         public DbSet<pfAdministrador> pfAdministradores { get; set; }
-        public DbSet<pfCliente> pfClientes { get; set; }
         public DbSet<pfDestino> pfDestinos { get; set; }
-        public DbSet<pfEmpleado> pfEmpleados { get; set; }
         public DbSet<pfGasto> pfGastos { get; set; }
         public DbSet<pfItinerario> pfItinerarios { get; set; }
         public DbSet<pfReserva> pfReservas { get; set; }
@@ -36,56 +34,6 @@ namespace TourismBackend.DataContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Datos semilla para pfClientes
-            modelBuilder.Entity<pfCliente>().HasData(
-                new pfCliente
-                {
-                    ID = 1,
-                    Nombre = "Juan",
-                    Apellido = "Pérez",
-                    Email = "juan.perez@example.com",
-                    Telefono = "123456789",
-                    FechaRegistro = DateTime.Now,
-                    Notas = "Cliente frecuente"
-                },
-                new pfCliente
-                {
-                    ID = 2,
-                    Nombre = "Ana",
-                    Apellido = "García",
-                    Email = "ana.garcia@example.com",
-                    Telefono = "987654321",
-                    FechaRegistro = DateTime.Now,
-                    Notas = "Interesada en viajes a Europa"
-                }
-            );
-
-            // Datos semilla para pfEmpleados
-            modelBuilder.Entity<pfEmpleado>().HasData(
-                new pfEmpleado
-                {
-                    ID = 1,
-                    Nombre = "Luis",
-                    Apellido = "Martínez",
-                    Email = "luis.martinez@example.com",
-                    Telefono = "123123123",
-                    Rol = "Agente de viajes",
-                    FechaContratacion = DateTime.Now,
-                    Notas = "Empleado con más ventas"
-                },
-                new pfEmpleado
-                {
-                    ID = 2,
-                    Nombre = "Laura",
-                    Apellido = "Lopez",
-                    Email = "laura.lopez@example.com",
-                    Telefono = "321321321",
-                    Rol = "Agente de viajes",
-                    FechaContratacion = DateTime.Now,
-                    Notas = "Empleado con más reservas"
-                }
-            );
-
             // Datos semilla para pfAdministradores
             modelBuilder.Entity<pfAdministrador>().HasData(
                 new pfAdministrador
@@ -194,7 +142,7 @@ namespace TourismBackend.DataContext
                 new pfReserva
                 {
                     ID = 1,
-                    ClienteID = 1,
+                    AdministradorID = 1,
                     ItinerarioID = 1,
                     FechaReserva = DateTime.Now,
                     EstadoReservaEnum = EstadoReservaEnum.Confirmada
@@ -202,7 +150,7 @@ namespace TourismBackend.DataContext
                 new pfReserva
                 {
                     ID = 2,
-                    ClienteID = 2,
+                    AdministradorID = 2,
                     ItinerarioID = 2,
                     FechaReserva = DateTime.Now,
                     EstadoReservaEnum = EstadoReservaEnum.Pendiente
@@ -216,7 +164,7 @@ namespace TourismBackend.DataContext
                     ID = 1,
                     Monto = 1500.00m,
                     Fecha = DateTime.Now,
-                    ClienteID = 1,
+                    AdministradorID = 1,
                     ItinerarioID = 1,
                     ConfirmacionPagoEnum = ConfirmacionPagoEnum.Confirmado,
                     FormaDePagoEnum = FormaPagoEnum.TarjetaDeCredito
@@ -226,7 +174,7 @@ namespace TourismBackend.DataContext
                     ID = 2,
                     Monto = 2000.00m,
                     Fecha = DateTime.Now,
-                    ClienteID = 2,
+                    AdministradorID = 2,
                     ItinerarioID = 2,
                     ConfirmacionPagoEnum = ConfirmacionPagoEnum.Rechazado,
                     FormaDePagoEnum = FormaPagoEnum.TarjetaDeDebito
@@ -236,7 +184,7 @@ namespace TourismBackend.DataContext
                     ID = 3,
                     Monto = 500.00m,
                     Fecha = DateTime.Now,
-                    ClienteID = 1,
+                    AdministradorID = 1,
                     ItinerarioID = 1,
                     ConfirmacionPagoEnum = ConfirmacionPagoEnum.Reembolsado,
                     FormaDePagoEnum = FormaPagoEnum.TransferenciaBancaria
