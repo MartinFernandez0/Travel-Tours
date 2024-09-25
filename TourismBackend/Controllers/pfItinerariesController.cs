@@ -12,47 +12,47 @@ namespace TourismBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class pfTransaccionesController : ControllerBase
+    public class pfItinerariesController : ControllerBase
     {
         private readonly TourismContext _context;
 
-        public pfTransaccionesController(TourismContext context)
+        public pfItinerariesController(TourismContext context)
         {
             _context = context;
         }
 
-        // GET: api/pfTransacciones
+        // GET: api/pfItineraries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<pfTransaccion>>> GetpfTransacciones()
+        public async Task<ActionResult<IEnumerable<pfItinerary>>> GetpfItineraries()
         {
-            return await _context.pfTransacciones.ToListAsync();
+            return await _context.pfItineraries.ToListAsync();
         }
 
-        // GET: api/pfTransacciones/5
+        // GET: api/pfItineraries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<pfTransaccion>> GetpfTransaccion(int id)
+        public async Task<ActionResult<pfItinerary>> GetpfItinerary(int id)
         {
-            var pfTransaccion = await _context.pfTransacciones.FindAsync(id);
+            var pfItinerary = await _context.pfItineraries.FindAsync(id);
 
-            if (pfTransaccion == null)
+            if (pfItinerary == null)
             {
                 return NotFound();
             }
 
-            return pfTransaccion;
+            return pfItinerary;
         }
 
-        // PUT: api/pfTransacciones/5
+        // PUT: api/pfItineraries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutpfTransaccion(int id, pfTransaccion pfTransaccion)
+        public async Task<IActionResult> PutpfItinerary(int id, pfItinerary pfItinerary)
         {
-            if (id != pfTransaccion.ID)
+            if (id != pfItinerary.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(pfTransaccion).State = EntityState.Modified;
+            _context.Entry(pfItinerary).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace TourismBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!pfTransaccionExists(id))
+                if (!pfItineraryExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace TourismBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/pfTransacciones
+        // POST: api/pfItineraries
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<pfTransaccion>> PostpfTransaccion(pfTransaccion pfTransaccion)
+        public async Task<ActionResult<pfItinerary>> PostpfItinerary(pfItinerary pfItinerary)
         {
-            _context.pfTransacciones.Add(pfTransaccion);
+            _context.pfItineraries.Add(pfItinerary);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetpfTransaccion", new { id = pfTransaccion.ID }, pfTransaccion);
+            return CreatedAtAction("GetpfItinerary", new { id = pfItinerary.ID }, pfItinerary);
         }
 
-        // DELETE: api/pfTransacciones/5
+        // DELETE: api/pfItineraries/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletepfTransaccion(int id)
+        public async Task<IActionResult> DeletepfItinerary(int id)
         {
-            var pfTransaccion = await _context.pfTransacciones.FindAsync(id);
-            if (pfTransaccion == null)
+            var pfItinerary = await _context.pfItineraries.FindAsync(id);
+            if (pfItinerary == null)
             {
                 return NotFound();
             }
 
-            _context.pfTransacciones.Remove(pfTransaccion);
+            _context.pfItineraries.Remove(pfItinerary);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool pfTransaccionExists(int id)
+        private bool pfItineraryExists(int id)
         {
-            return _context.pfTransacciones.Any(e => e.ID == id);
+            return _context.pfItineraries.Any(e => e.ID == id);
         }
     }
 }

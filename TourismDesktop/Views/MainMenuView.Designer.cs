@@ -47,6 +47,7 @@
             btnIniciarSesion.Size = new Size(90, 38);
             btnIniciarSesion.TabIndex = 0;
             btnIniciarSesion.UseVisualStyleBackColor = false;
+            btnIniciarSesion.Click += btnIniciarSesion_Click;
             // 
             // label1
             // 

@@ -12,47 +12,47 @@ namespace TourismBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class pfDestinosController : ControllerBase
+    public class pfTransactionsController : ControllerBase
     {
         private readonly TourismContext _context;
 
-        public pfDestinosController(TourismContext context)
+        public pfTransactionsController(TourismContext context)
         {
             _context = context;
         }
 
-        // GET: api/pfDestinos
+        // GET: api/pfTransactions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<pfDestino>>> GetpfDestinos()
+        public async Task<ActionResult<IEnumerable<pfTransaction>>> GetpfTransactions()
         {
-            return await _context.pfDestinos.ToListAsync();
+            return await _context.pfTransactions.ToListAsync();
         }
 
-        // GET: api/pfDestinos/5
+        // GET: api/pfTransactions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<pfDestino>> GetpfDestino(int id)
+        public async Task<ActionResult<pfTransaction>> GetpfTransaction(int id)
         {
-            var pfDestino = await _context.pfDestinos.FindAsync(id);
+            var pfTransaction = await _context.pfTransactions.FindAsync(id);
 
-            if (pfDestino == null)
+            if (pfTransaction == null)
             {
                 return NotFound();
             }
 
-            return pfDestino;
+            return pfTransaction;
         }
 
-        // PUT: api/pfDestinos/5
+        // PUT: api/pfTransactions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutpfDestino(int id, pfDestino pfDestino)
+        public async Task<IActionResult> PutpfTransaction(int id, pfTransaction pfTransaction)
         {
-            if (id != pfDestino.ID)
+            if (id != pfTransaction.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(pfDestino).State = EntityState.Modified;
+            _context.Entry(pfTransaction).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace TourismBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!pfDestinoExists(id))
+                if (!pfTransactionExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace TourismBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/pfDestinos
+        // POST: api/pfTransactions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<pfDestino>> PostpfDestino(pfDestino pfDestino)
+        public async Task<ActionResult<pfTransaction>> PostpfTransaction(pfTransaction pfTransaction)
         {
-            _context.pfDestinos.Add(pfDestino);
+            _context.pfTransactions.Add(pfTransaction);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetpfDestino", new { id = pfDestino.ID }, pfDestino);
+            return CreatedAtAction("GetpfTransaction", new { id = pfTransaction.ID }, pfTransaction);
         }
 
-        // DELETE: api/pfDestinos/5
+        // DELETE: api/pfTransactions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletepfDestino(int id)
+        public async Task<IActionResult> DeletepfTransaction(int id)
         {
-            var pfDestino = await _context.pfDestinos.FindAsync(id);
-            if (pfDestino == null)
+            var pfTransaction = await _context.pfTransactions.FindAsync(id);
+            if (pfTransaction == null)
             {
                 return NotFound();
             }
 
-            _context.pfDestinos.Remove(pfDestino);
+            _context.pfTransactions.Remove(pfTransaction);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool pfDestinoExists(int id)
+        private bool pfTransactionExists(int id)
         {
-            return _context.pfDestinos.Any(e => e.ID == id);
+            return _context.pfTransactions.Any(e => e.ID == id);
         }
     }
 }

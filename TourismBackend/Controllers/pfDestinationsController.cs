@@ -12,47 +12,47 @@ namespace TourismBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class pfReservasController : ControllerBase
+    public class pfDestinationsController : ControllerBase
     {
         private readonly TourismContext _context;
 
-        public pfReservasController(TourismContext context)
+        public pfDestinationsController(TourismContext context)
         {
             _context = context;
         }
 
-        // GET: api/pfReservas
+        // GET: api/pfDestinations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<pfReserva>>> GetpfReservas()
+        public async Task<ActionResult<IEnumerable<pfDestination>>> GetpfDestinations()
         {
-            return await _context.pfReservas.ToListAsync();
+            return await _context.pfDestinations.ToListAsync();
         }
 
-        // GET: api/pfReservas/5
+        // GET: api/pfDestinations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<pfReserva>> GetpfReserva(int id)
+        public async Task<ActionResult<pfDestination>> GetpfDestination(int id)
         {
-            var pfReserva = await _context.pfReservas.FindAsync(id);
+            var pfDestination = await _context.pfDestinations.FindAsync(id);
 
-            if (pfReserva == null)
+            if (pfDestination == null)
             {
                 return NotFound();
             }
 
-            return pfReserva;
+            return pfDestination;
         }
 
-        // PUT: api/pfReservas/5
+        // PUT: api/pfDestinations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutpfReserva(int id, pfReserva pfReserva)
+        public async Task<IActionResult> PutpfDestination(int id, pfDestination pfDestination)
         {
-            if (id != pfReserva.ID)
+            if (id != pfDestination.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(pfReserva).State = EntityState.Modified;
+            _context.Entry(pfDestination).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace TourismBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!pfReservaExists(id))
+                if (!pfDestinationExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace TourismBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/pfReservas
+        // POST: api/pfDestinations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<pfReserva>> PostpfReserva(pfReserva pfReserva)
+        public async Task<ActionResult<pfDestination>> PostpfDestination(pfDestination pfDestination)
         {
-            _context.pfReservas.Add(pfReserva);
+            _context.pfDestinations.Add(pfDestination);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetpfReserva", new { id = pfReserva.ID }, pfReserva);
+            return CreatedAtAction("GetpfDestination", new { id = pfDestination.ID }, pfDestination);
         }
 
-        // DELETE: api/pfReservas/5
+        // DELETE: api/pfDestinations/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletepfReserva(int id)
+        public async Task<IActionResult> DeletepfDestination(int id)
         {
-            var pfReserva = await _context.pfReservas.FindAsync(id);
-            if (pfReserva == null)
+            var pfDestination = await _context.pfDestinations.FindAsync(id);
+            if (pfDestination == null)
             {
                 return NotFound();
             }
 
-            _context.pfReservas.Remove(pfReserva);
+            _context.pfDestinations.Remove(pfDestination);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool pfReservaExists(int id)
+        private bool pfDestinationExists(int id)
         {
-            return _context.pfReservas.Any(e => e.ID == id);
+            return _context.pfDestinations.Any(e => e.ID == id);
         }
     }
 }

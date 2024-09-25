@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TourismServices.Enums
 {
-    public enum FormaPagoEnum
+    public enum PaymentMethodEnum
     {
-        Efectivo,
-        TarjetaDeCredito,
-        TarjetaDeDebito,
-        TransferenciaBancaria,
+        Cash,
+        CreditCard,
+        DebitCard,
+        BankTransfer,
         PayPal,
-        Otros
+        Others
     }
 
 }

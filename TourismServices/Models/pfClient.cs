@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace TourismServices.Models
 {
-    public class pfAdministrador
+    public class pfClient
     {
         public int ID { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Document { get; set; }
         public string Email { get; set; }
-        public string Telefono { get; set; }
-        public DateTime FechaRegistro { get; set; }
+        public string PhoneNumber { get; set; }
     }
-
 }

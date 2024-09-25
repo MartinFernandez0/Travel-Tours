@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TourismServices.Enums
 {
-    public enum ConfirmacionPagoEnum
+    public enum PaymentConfirmationEnum
     {
-        Pendiente,
-        Confirmado,
-        Rechazado,
-        Reembolsado
+        Pending,
+        Confirmed,
+        Rejected,
+        Refunded
     }
 
 }

@@ -12,47 +12,47 @@ namespace TourismBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class pfGastosController : ControllerBase
+    public class pfActivitiesController : ControllerBase
     {
         private readonly TourismContext _context;
 
-        public pfGastosController(TourismContext context)
+        public pfActivitiesController(TourismContext context)
         {
             _context = context;
         }
 
-        // GET: api/pfGastos
+        // GET: api/pfActivities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<pfGasto>>> GetpfGastos()
+        public async Task<ActionResult<IEnumerable<pfActivity>>> GetpfActivities()
         {
-            return await _context.pfGastos.ToListAsync();
+            return await _context.pfActivities.ToListAsync();
         }
 
-        // GET: api/pfGastos/5
+        // GET: api/pfActivities/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<pfGasto>> GetpfGasto(int id)
+        public async Task<ActionResult<pfActivity>> GetpfActivity(int id)
         {
-            var pfGasto = await _context.pfGastos.FindAsync(id);
+            var pfActivity = await _context.pfActivities.FindAsync(id);
 
-            if (pfGasto == null)
+            if (pfActivity == null)
             {
                 return NotFound();
             }
 
-            return pfGasto;
+            return pfActivity;
         }
 
-        // PUT: api/pfGastos/5
+        // PUT: api/pfActivities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutpfGasto(int id, pfGasto pfGasto)
+        public async Task<IActionResult> PutpfActivity(int id, pfActivity pfActivity)
         {
-            if (id != pfGasto.ID)
+            if (id != pfActivity.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(pfGasto).State = EntityState.Modified;
+            _context.Entry(pfActivity).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace TourismBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!pfGastoExists(id))
+                if (!pfActivityExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace TourismBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/pfGastos
+        // POST: api/pfActivities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<pfGasto>> PostpfGasto(pfGasto pfGasto)
+        public async Task<ActionResult<pfActivity>> PostpfActivity(pfActivity pfActivity)
         {
-            _context.pfGastos.Add(pfGasto);
+            _context.pfActivities.Add(pfActivity);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetpfGasto", new { id = pfGasto.ID }, pfGasto);
+            return CreatedAtAction("GetpfActivity", new { id = pfActivity.ID }, pfActivity);
         }
 
-        // DELETE: api/pfGastos/5
+        // DELETE: api/pfActivities/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletepfGasto(int id)
+        public async Task<IActionResult> DeletepfActivity(int id)
         {
-            var pfGasto = await _context.pfGastos.FindAsync(id);
-            if (pfGasto == null)
+            var pfActivity = await _context.pfActivities.FindAsync(id);
+            if (pfActivity == null)
             {
                 return NotFound();
             }
 
-            _context.pfGastos.Remove(pfGasto);
+            _context.pfActivities.Remove(pfActivity);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool pfGastoExists(int id)
+        private bool pfActivityExists(int id)
         {
-            return _context.pfGastos.Any(e => e.ID == id);
+            return _context.pfActivities.Any(e => e.ID == id);
         }
     }
 }

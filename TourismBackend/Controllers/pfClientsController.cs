@@ -12,47 +12,47 @@ namespace TourismBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class pfActividadesController : ControllerBase
+    public class pfClientsController : ControllerBase
     {
         private readonly TourismContext _context;
 
-        public pfActividadesController(TourismContext context)
+        public pfClientsController(TourismContext context)
         {
             _context = context;
         }
 
-        // GET: api/pfActividades
+        // GET: api/pfClients
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<pfActividad>>> GetpfActividades()
+        public async Task<ActionResult<IEnumerable<pfClient>>> GetpfClients()
         {
-            return await _context.pfActividades.ToListAsync();
+            return await _context.pfClients.ToListAsync();
         }
 
-        // GET: api/pfActividades/5
+        // GET: api/pfClients/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<pfActividad>> GetpfActividad(int id)
+        public async Task<ActionResult<pfClient>> GetpfClient(int id)
         {
-            var pfActividad = await _context.pfActividades.FindAsync(id);
+            var pfClient = await _context.pfClients.FindAsync(id);
 
-            if (pfActividad == null)
+            if (pfClient == null)
             {
                 return NotFound();
             }
 
-            return pfActividad;
+            return pfClient;
         }
 
-        // PUT: api/pfActividades/5
+        // PUT: api/pfClients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutpfActividad(int id, pfActividad pfActividad)
+        public async Task<IActionResult> PutpfClient(int id, pfClient pfClient)
         {
-            if (id != pfActividad.ID)
+            if (id != pfClient.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(pfActividad).State = EntityState.Modified;
+            _context.Entry(pfClient).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace TourismBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!pfActividadExists(id))
+                if (!pfClientExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace TourismBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/pfActividades
+        // POST: api/pfClients
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<pfActividad>> PostpfActividad(pfActividad pfActividad)
+        public async Task<ActionResult<pfClient>> PostpfClient(pfClient pfClient)
         {
-            _context.pfActividades.Add(pfActividad);
+            _context.pfClients.Add(pfClient);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetpfActividad", new { id = pfActividad.ID }, pfActividad);
+            return CreatedAtAction("GetpfClient", new { id = pfClient.ID }, pfClient);
         }
 
-        // DELETE: api/pfActividades/5
+        // DELETE: api/pfClients/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletepfActividad(int id)
+        public async Task<IActionResult> DeletepfClient(int id)
         {
-            var pfActividad = await _context.pfActividades.FindAsync(id);
-            if (pfActividad == null)
+            var pfClient = await _context.pfClients.FindAsync(id);
+            if (pfClient == null)
             {
                 return NotFound();
             }
 
-            _context.pfActividades.Remove(pfActividad);
+            _context.pfClients.Remove(pfClient);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool pfActividadExists(int id)
+        private bool pfClientExists(int id)
         {
-            return _context.pfActividades.Any(e => e.ID == id);
+            return _context.pfClients.Any(e => e.ID == id);
         }
     }
 }

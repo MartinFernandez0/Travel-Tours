@@ -8,15 +8,15 @@ using TourismServices.Enums;
 
 namespace TourismServices.Models
 {
-    public class pfReserva
+    public class pfReservation
     {
         public int ID { get; set; }
-        public int AdministradorID { get; set; }
-        public int ItinerarioID { get; set; }
-        public int ClienteID { get; set; }
+        public int AdministratorID { get; set; }
+        public int ItineraryID { get; set; }
+        public int ClientID { get; set; }
 
         [Required]
-        public EstadoReservaEnum EstadoReservaEnum { get; set; }
-        public DateTime FechaReserva { get; set; }
+        public ReservationStatusEnum ReservationStatus { get; set; }
+        public DateTime ReservationDate { get; set; }
     }
 }
