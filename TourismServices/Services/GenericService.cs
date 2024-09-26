@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Microsoft.Azure.Amqp.Framing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TourismServices.Class;
 using TourismServices.Interfaces;
+using TourismServices.Models;
+using TourismServices.Properties;
 
 namespace TourismServices.Services
 {
