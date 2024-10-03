@@ -1,17 +1,16 @@
+
 namespace TourismDesktop
 {
     public partial class MainMenuView : Form
     {
         bool sidebarExpand;
 
+
+
         public MainMenuView()
         {
             InitializeComponent();
         }
-
-
-
-
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
@@ -43,35 +42,13 @@ namespace TourismDesktop
             sidebarTimer.Start();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            // Navigate to TabpageHome
-            tabControl1.SelectTab(TabPageHome);
-        }
-
-        private void btnDestination_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(tabPageDestination);
-        }
-
-        private void btnActivity_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(tabPageActivity);
-        }
-
-        private void btnItinerary_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(tabPageItinerary);
-        }
-
-        private void btnPaymentMethod_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(tabPagePaymentMethod);
-        }
-
-        private void btnHotels_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(TabPageHotels);
+            DialogResult result = MessageBox.Show("¿Desea salir del sistema?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -35,58 +35,28 @@
             label1 = new Label();
             menubutton = new FontAwesome.Sharp.IconPictureBox();
             btnHome = new FontAwesome.Sharp.IconButton();
-            btnHotels = new FontAwesome.Sharp.IconButton();
+            btnAdmin = new FontAwesome.Sharp.IconButton();
+            btnClient = new FontAwesome.Sharp.IconButton();
             btnDestination = new FontAwesome.Sharp.IconButton();
-            btnActivity = new FontAwesome.Sharp.IconButton();
             btnItinerary = new FontAwesome.Sharp.IconButton();
-            btnPaymentMethod = new FontAwesome.Sharp.IconButton();
+            panel2 = new Panel();
+            btnClose = new FontAwesome.Sharp.IconButton();
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            tabControl1 = new TabControl();
-            TabPageHotels = new TabPage();
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
-            dataGridHotels = new DataGridView();
-            tabPageDestination = new TabPage();
-            tabPageActivity = new TabPage();
-            tabPageItinerary = new TabPage();
-            tabPagePaymentMethod = new TabPage();
-            TabPageHome = new TabPage();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            dataGridDestination = new DataGridView();
-            iconButton4 = new FontAwesome.Sharp.IconButton();
-            iconButton5 = new FontAwesome.Sharp.IconButton();
-            iconButton6 = new FontAwesome.Sharp.IconButton();
-            dataGridActivity = new DataGridView();
-            iconButton7 = new FontAwesome.Sharp.IconButton();
-            iconButton8 = new FontAwesome.Sharp.IconButton();
-            iconButton9 = new FontAwesome.Sharp.IconButton();
-            dataGridItinerary = new DataGridView();
-            iconButton10 = new FontAwesome.Sharp.IconButton();
-            iconButton11 = new FontAwesome.Sharp.IconButton();
-            iconButton12 = new FontAwesome.Sharp.IconButton();
-            dataGridPaymentMethod = new DataGridView();
+            pictureBox3 = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             sidebar.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menubutton).BeginInit();
-            tabControl1.SuspendLayout();
-            TabPageHotels.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridHotels).BeginInit();
-            tabPageDestination.SuspendLayout();
-            tabPageActivity.SuspendLayout();
-            tabPageItinerary.SuspendLayout();
-            tabPagePaymentMethod.SuspendLayout();
-            TabPageHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridDestination).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridActivity).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridItinerary).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridPaymentMethod).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // sidebar
@@ -95,11 +65,12 @@
             sidebar.BackgroundImageLayout = ImageLayout.Zoom;
             sidebar.Controls.Add(panel1);
             sidebar.Controls.Add(btnHome);
-            sidebar.Controls.Add(btnHotels);
+            sidebar.Controls.Add(btnAdmin);
+            sidebar.Controls.Add(btnClient);
             sidebar.Controls.Add(btnDestination);
-            sidebar.Controls.Add(btnActivity);
             sidebar.Controls.Add(btnItinerary);
-            sidebar.Controls.Add(btnPaymentMethod);
+            sidebar.Controls.Add(panel2);
+            sidebar.Controls.Add(btnClose);
             sidebar.Dock = DockStyle.Left;
             sidebar.FlowDirection = FlowDirection.TopDown;
             sidebar.Location = new Point(0, 0);
@@ -116,14 +87,15 @@
             panel1.Cursor = Cursors.Hand;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(237, 87);
+            panel1.Size = new Size(237, 59);
             panel1.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Lucida Handwriting", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(62, 28);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(67, 23);
             label1.Name = "label1";
             label1.Size = new Size(155, 20);
             label1.TabIndex = 3;
@@ -138,7 +110,7 @@
             menubutton.IconColor = SystemColors.ControlLightLight;
             menubutton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menubutton.IconSize = 37;
-            menubutton.Location = new Point(16, 20);
+            menubutton.Location = new Point(15, 16);
             menubutton.Name = "menubutton";
             menubutton.Size = new Size(40, 37);
             menubutton.TabIndex = 3;
@@ -157,37 +129,57 @@
             btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHome.IconSize = 30;
             btnHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHome.Location = new Point(8, 108);
+            btnHome.Location = new Point(8, 80);
             btnHome.Margin = new Padding(8, 15, 3, 3);
             btnHome.Name = "btnHome";
             btnHome.Padding = new Padding(7, 0, 0, 0);
-            btnHome.Size = new Size(232, 39);
+            btnHome.Size = new Size(232, 34);
             btnHome.TabIndex = 4;
             btnHome.Text = "                       Home";
             btnHome.TextAlign = ContentAlignment.MiddleLeft;
             btnHome.UseVisualStyleBackColor = false;
-            btnHome.Click += btnHome_Click;
             // 
-            // btnHotels
+            // btnAdmin
             // 
-            btnHotels.BackColor = Color.DimGray;
-            btnHotels.FlatStyle = FlatStyle.Popup;
-            btnHotels.ForeColor = Color.Transparent;
-            btnHotels.IconChar = FontAwesome.Sharp.IconChar.Hotel;
-            btnHotels.IconColor = Color.White;
-            btnHotels.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnHotels.IconSize = 30;
-            btnHotels.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHotels.Location = new Point(8, 165);
-            btnHotels.Margin = new Padding(8, 15, 3, 3);
-            btnHotels.Name = "btnHotels";
-            btnHotels.Padding = new Padding(7, 0, 0, 0);
-            btnHotels.Size = new Size(232, 39);
-            btnHotels.TabIndex = 6;
-            btnHotels.Text = "                       Hoteles";
-            btnHotels.TextAlign = ContentAlignment.MiddleLeft;
-            btnHotels.UseVisualStyleBackColor = false;
-            btnHotels.Click += btnHotels_Click;
+            btnAdmin.BackColor = Color.DimGray;
+            btnAdmin.FlatStyle = FlatStyle.Popup;
+            btnAdmin.ForeColor = Color.Transparent;
+            btnAdmin.IconChar = FontAwesome.Sharp.IconChar.Hotel;
+            btnAdmin.IconColor = Color.White;
+            btnAdmin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAdmin.IconSize = 30;
+            btnAdmin.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdmin.Location = new Point(8, 132);
+            btnAdmin.Margin = new Padding(8, 15, 3, 3);
+            btnAdmin.Name = "btnAdmin";
+            btnAdmin.Padding = new Padding(7, 0, 0, 0);
+            btnAdmin.Size = new Size(232, 34);
+            btnAdmin.TabIndex = 6;
+            btnAdmin.Text = "                       Administradores";
+            btnAdmin.TextAlign = ContentAlignment.MiddleLeft;
+            btnAdmin.UseVisualStyleBackColor = false;
+            // 
+            // btnClient
+            // 
+            btnClient.Anchor = AnchorStyles.Left;
+            btnClient.BackColor = Color.DimGray;
+            btnClient.BackgroundImageLayout = ImageLayout.None;
+            btnClient.FlatStyle = FlatStyle.Popup;
+            btnClient.ForeColor = Color.White;
+            btnClient.IconChar = FontAwesome.Sharp.IconChar.Landmark;
+            btnClient.IconColor = Color.White;
+            btnClient.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClient.IconSize = 30;
+            btnClient.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClient.Location = new Point(8, 184);
+            btnClient.Margin = new Padding(8, 15, 3, 3);
+            btnClient.Name = "btnClient";
+            btnClient.Padding = new Padding(7, 0, 0, 0);
+            btnClient.Size = new Size(232, 34);
+            btnClient.TabIndex = 7;
+            btnClient.Text = "                       Clientes";
+            btnClient.TextAlign = ContentAlignment.MiddleLeft;
+            btnClient.UseVisualStyleBackColor = false;
             // 
             // btnDestination
             // 
@@ -199,37 +191,15 @@
             btnDestination.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDestination.IconSize = 30;
             btnDestination.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDestination.Location = new Point(8, 222);
+            btnDestination.Location = new Point(8, 236);
             btnDestination.Margin = new Padding(8, 15, 3, 3);
             btnDestination.Name = "btnDestination";
             btnDestination.Padding = new Padding(7, 0, 0, 0);
-            btnDestination.Size = new Size(232, 39);
+            btnDestination.Size = new Size(232, 34);
             btnDestination.TabIndex = 5;
             btnDestination.Text = "                       Destinos";
             btnDestination.TextAlign = ContentAlignment.MiddleLeft;
             btnDestination.UseVisualStyleBackColor = false;
-            // 
-            // btnActivity
-            // 
-            btnActivity.Anchor = AnchorStyles.Left;
-            btnActivity.BackColor = Color.DimGray;
-            btnActivity.BackgroundImageLayout = ImageLayout.None;
-            btnActivity.FlatStyle = FlatStyle.Popup;
-            btnActivity.ForeColor = Color.White;
-            btnActivity.IconChar = FontAwesome.Sharp.IconChar.Landmark;
-            btnActivity.IconColor = Color.White;
-            btnActivity.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnActivity.IconSize = 30;
-            btnActivity.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActivity.Location = new Point(8, 279);
-            btnActivity.Margin = new Padding(8, 15, 3, 3);
-            btnActivity.Name = "btnActivity";
-            btnActivity.Padding = new Padding(7, 0, 0, 0);
-            btnActivity.Size = new Size(232, 39);
-            btnActivity.TabIndex = 7;
-            btnActivity.Text = "                       Actividades";
-            btnActivity.TextAlign = ContentAlignment.MiddleLeft;
-            btnActivity.UseVisualStyleBackColor = false;
             // 
             // btnItinerary
             // 
@@ -243,71 +213,44 @@
             btnItinerary.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnItinerary.IconSize = 30;
             btnItinerary.ImageAlign = ContentAlignment.MiddleLeft;
-            btnItinerary.Location = new Point(8, 336);
+            btnItinerary.Location = new Point(8, 288);
             btnItinerary.Margin = new Padding(8, 15, 3, 3);
             btnItinerary.Name = "btnItinerary";
             btnItinerary.Padding = new Padding(7, 0, 0, 0);
-            btnItinerary.Size = new Size(232, 39);
+            btnItinerary.Size = new Size(232, 34);
             btnItinerary.TabIndex = 8;
             btnItinerary.Text = "                       Itinerarios";
             btnItinerary.TextAlign = ContentAlignment.MiddleLeft;
             btnItinerary.UseVisualStyleBackColor = false;
             // 
-            // btnPaymentMethod
+            // panel2
             // 
-            btnPaymentMethod.Anchor = AnchorStyles.Left;
-            btnPaymentMethod.BackColor = Color.DimGray;
-            btnPaymentMethod.BackgroundImageLayout = ImageLayout.None;
-            btnPaymentMethod.FlatStyle = FlatStyle.Popup;
-            btnPaymentMethod.ForeColor = Color.White;
-            btnPaymentMethod.IconChar = FontAwesome.Sharp.IconChar.Landmark;
-            btnPaymentMethod.IconColor = Color.White;
-            btnPaymentMethod.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnPaymentMethod.IconSize = 30;
-            btnPaymentMethod.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPaymentMethod.Location = new Point(8, 393);
-            btnPaymentMethod.Margin = new Padding(8, 15, 3, 3);
-            btnPaymentMethod.Name = "btnPaymentMethod";
-            btnPaymentMethod.Padding = new Padding(7, 0, 0, 0);
-            btnPaymentMethod.Size = new Size(232, 39);
-            btnPaymentMethod.TabIndex = 9;
-            btnPaymentMethod.Text = "                       Método de pago";
-            btnPaymentMethod.TextAlign = ContentAlignment.MiddleLeft;
-            btnPaymentMethod.UseVisualStyleBackColor = false;
+            panel2.Cursor = Cursors.Hand;
+            panel2.Location = new Point(3, 328);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(237, 81);
+            panel2.TabIndex = 28;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Transparent;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.Transparent;
+            btnClose.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            btnClose.IconColor = Color.White;
+            btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClose.IconSize = 40;
+            btnClose.Location = new Point(3, 415);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(61, 41);
+            btnClose.TabIndex = 28;
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick;
-            // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(TabPageHotels);
-            tabControl1.Controls.Add(tabPageDestination);
-            tabControl1.Controls.Add(tabPageActivity);
-            tabControl1.Controls.Add(tabPageItinerary);
-            tabControl1.Controls.Add(tabPagePaymentMethod);
-            tabControl1.Controls.Add(TabPageHome);
-            tabControl1.Location = new Point(0, -1);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(846, 466);
-            tabControl1.TabIndex = 3;
-            tabControl1.Tag = "";
-            // 
-            // TabPageHotels
-            // 
-            TabPageHotels.Controls.Add(btnEliminar);
-            TabPageHotels.Controls.Add(btnModificar);
-            TabPageHotels.Controls.Add(btnAgregar);
-            TabPageHotels.Controls.Add(dataGridHotels);
-            TabPageHotels.Location = new Point(4, 24);
-            TabPageHotels.Name = "TabPageHotels";
-            TabPageHotels.Padding = new Padding(3);
-            TabPageHotels.Size = new Size(838, 438);
-            TabPageHotels.TabIndex = 1;
-            TabPageHotels.Text = "2";
-            TabPageHotels.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
@@ -318,7 +261,7 @@
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminar.IconSize = 20;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(627, 199);
+            btnEliminar.Location = new Point(673, 19);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(127, 38);
@@ -335,7 +278,7 @@
             btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnModificar.IconSize = 20;
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(480, 199);
+            btnModificar.Location = new Point(526, 19);
             btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(127, 38);
@@ -352,7 +295,7 @@
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregar.IconSize = 20;
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(329, 200);
+            btnAgregar.Location = new Point(375, 20);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(127, 38);
@@ -360,338 +303,71 @@
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // dataGridHotels
-            // 
-            dataGridHotels.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridHotels.Location = new Point(274, 248);
-            dataGridHotels.Name = "dataGridHotels";
-            dataGridHotels.Size = new Size(523, 161);
-            dataGridHotels.TabIndex = 0;
-            // 
-            // tabPageDestination
-            // 
-            tabPageDestination.Controls.Add(iconButton1);
-            tabPageDestination.Controls.Add(iconButton2);
-            tabPageDestination.Controls.Add(iconButton3);
-            tabPageDestination.Controls.Add(dataGridDestination);
-            tabPageDestination.Location = new Point(4, 24);
-            tabPageDestination.Name = "tabPageDestination";
-            tabPageDestination.Padding = new Padding(3);
-            tabPageDestination.Size = new Size(838, 438);
-            tabPageDestination.TabIndex = 2;
-            tabPageDestination.Text = "3";
-            tabPageDestination.UseVisualStyleBackColor = true;
-            // 
-            // tabPageActivity
-            // 
-            tabPageActivity.Controls.Add(iconButton4);
-            tabPageActivity.Controls.Add(iconButton5);
-            tabPageActivity.Controls.Add(iconButton6);
-            tabPageActivity.Controls.Add(dataGridActivity);
-            tabPageActivity.Location = new Point(4, 24);
-            tabPageActivity.Name = "tabPageActivity";
-            tabPageActivity.Padding = new Padding(3);
-            tabPageActivity.Size = new Size(838, 438);
-            tabPageActivity.TabIndex = 3;
-            tabPageActivity.Text = "4";
-            tabPageActivity.UseVisualStyleBackColor = true;
-            // 
-            // tabPageItinerary
-            // 
-            tabPageItinerary.Controls.Add(iconButton7);
-            tabPageItinerary.Controls.Add(iconButton8);
-            tabPageItinerary.Controls.Add(iconButton9);
-            tabPageItinerary.Controls.Add(dataGridItinerary);
-            tabPageItinerary.Location = new Point(4, 24);
-            tabPageItinerary.Name = "tabPageItinerary";
-            tabPageItinerary.Padding = new Padding(3);
-            tabPageItinerary.Size = new Size(838, 438);
-            tabPageItinerary.TabIndex = 4;
-            tabPageItinerary.Text = "5";
-            tabPageItinerary.UseVisualStyleBackColor = true;
-            // 
-            // tabPagePaymentMethod
-            // 
-            tabPagePaymentMethod.Controls.Add(iconButton10);
-            tabPagePaymentMethod.Controls.Add(iconButton11);
-            tabPagePaymentMethod.Controls.Add(iconButton12);
-            tabPagePaymentMethod.Controls.Add(dataGridPaymentMethod);
-            tabPagePaymentMethod.Location = new Point(4, 24);
-            tabPagePaymentMethod.Name = "tabPagePaymentMethod";
-            tabPagePaymentMethod.Padding = new Padding(3);
-            tabPagePaymentMethod.Size = new Size(838, 438);
-            tabPagePaymentMethod.TabIndex = 5;
-            tabPagePaymentMethod.Text = "6";
-            tabPagePaymentMethod.UseVisualStyleBackColor = true;
-            // 
-            // TabPageHome
-            // 
-            TabPageHome.Controls.Add(pictureBox1);
-            TabPageHome.Controls.Add(pictureBox2);
-            TabPageHome.Location = new Point(4, 24);
-            TabPageHome.Name = "TabPageHome";
-            TabPageHome.Padding = new Padding(3);
-            TabPageHome.Size = new Size(838, 438);
-            TabPageHome.TabIndex = 0;
-            TabPageHome.Text = "1";
-            TabPageHome.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-4, 162);
+            pictureBox1.Location = new Point(238, 184);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(839, 211);
+            pictureBox1.Size = new Size(219, 211);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 4;
+            pictureBox1.TabIndex = 28;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            pictureBox2.BackgroundImageLayout = ImageLayout.None;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Center;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(424, 21);
+            pictureBox2.Location = new Point(457, 184);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(344, 123);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 5;
+            pictureBox2.Size = new Size(223, 211);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 29;
             pictureBox2.TabStop = false;
             // 
-            // iconButton1
+            // pictureBox3
             // 
-            iconButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton1.ForeColor = SystemColors.ControlText;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 20;
-            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(626, 199);
-            iconButton1.Margin = new Padding(3, 2, 3, 2);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(127, 38);
-            iconButton1.TabIndex = 31;
-            iconButton1.Text = "Eliminar";
-            iconButton1.UseVisualStyleBackColor = true;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(680, 184);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(223, 211);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 30;
+            pictureBox3.TabStop = false;
             // 
-            // iconButton2
+            // label2
             // 
-            iconButton2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton2.ForeColor = SystemColors.ControlText;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            iconButton2.IconColor = Color.Black;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 20;
-            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(479, 199);
-            iconButton2.Margin = new Padding(3, 2, 3, 2);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(127, 38);
-            iconButton2.TabIndex = 30;
-            iconButton2.Text = "Modificar";
-            iconButton2.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Font = new Font("Lucida Handwriting", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ActiveCaptionText;
+            label2.Location = new Point(526, 143);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 24);
+            label2.TabIndex = 4;
+            label2.Text = "Hoteles";
             // 
-            // iconButton3
+            // label3
             // 
-            iconButton3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton3.ForeColor = SystemColors.ControlText;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            iconButton3.IconColor = Color.Black;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 20;
-            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(328, 200);
-            iconButton3.Margin = new Padding(3, 2, 3, 2);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(127, 38);
-            iconButton3.TabIndex = 29;
-            iconButton3.Text = "Agregar";
-            iconButton3.UseVisualStyleBackColor = true;
+            label3.AutoSize = true;
+            label3.Font = new Font("Lucida Handwriting", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ActiveCaptionText;
+            label3.Location = new Point(731, 142);
+            label3.Name = "label3";
+            label3.Size = new Size(105, 24);
+            label3.TabIndex = 31;
+            label3.Text = "Destinos";
             // 
-            // dataGridDestination
+            // label4
             // 
-            dataGridDestination.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridDestination.Location = new Point(274, 248);
-            dataGridDestination.Name = "dataGridDestination";
-            dataGridDestination.Size = new Size(523, 161);
-            dataGridDestination.TabIndex = 28;
-            // 
-            // iconButton4
-            // 
-            iconButton4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton4.ForeColor = SystemColors.ControlText;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            iconButton4.IconColor = Color.Black;
-            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.IconSize = 20;
-            iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(628, 199);
-            iconButton4.Margin = new Padding(3, 2, 3, 2);
-            iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(127, 38);
-            iconButton4.TabIndex = 35;
-            iconButton4.Text = "Eliminar";
-            iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // iconButton5
-            // 
-            iconButton5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton5.ForeColor = SystemColors.ControlText;
-            iconButton5.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            iconButton5.IconColor = Color.Black;
-            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton5.IconSize = 20;
-            iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton5.Location = new Point(481, 199);
-            iconButton5.Margin = new Padding(3, 2, 3, 2);
-            iconButton5.Name = "iconButton5";
-            iconButton5.Size = new Size(127, 38);
-            iconButton5.TabIndex = 34;
-            iconButton5.Text = "Modificar";
-            iconButton5.UseVisualStyleBackColor = true;
-            // 
-            // iconButton6
-            // 
-            iconButton6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton6.ForeColor = SystemColors.ControlText;
-            iconButton6.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            iconButton6.IconColor = Color.Black;
-            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton6.IconSize = 20;
-            iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton6.Location = new Point(330, 200);
-            iconButton6.Margin = new Padding(3, 2, 3, 2);
-            iconButton6.Name = "iconButton6";
-            iconButton6.Size = new Size(127, 38);
-            iconButton6.TabIndex = 33;
-            iconButton6.Text = "Agregar";
-            iconButton6.UseVisualStyleBackColor = true;
-            // 
-            // dataGridActivity
-            // 
-            dataGridActivity.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridActivity.Location = new Point(274, 248);
-            dataGridActivity.Name = "dataGridActivity";
-            dataGridActivity.Size = new Size(523, 161);
-            dataGridActivity.TabIndex = 32;
-            // 
-            // iconButton7
-            // 
-            iconButton7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton7.ForeColor = SystemColors.ControlText;
-            iconButton7.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            iconButton7.IconColor = Color.Black;
-            iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton7.IconSize = 20;
-            iconButton7.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton7.Location = new Point(628, 199);
-            iconButton7.Margin = new Padding(3, 2, 3, 2);
-            iconButton7.Name = "iconButton7";
-            iconButton7.Size = new Size(127, 38);
-            iconButton7.TabIndex = 35;
-            iconButton7.Text = "Eliminar";
-            iconButton7.UseVisualStyleBackColor = true;
-            // 
-            // iconButton8
-            // 
-            iconButton8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton8.ForeColor = SystemColors.ControlText;
-            iconButton8.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            iconButton8.IconColor = Color.Black;
-            iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton8.IconSize = 20;
-            iconButton8.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton8.Location = new Point(481, 199);
-            iconButton8.Margin = new Padding(3, 2, 3, 2);
-            iconButton8.Name = "iconButton8";
-            iconButton8.Size = new Size(127, 38);
-            iconButton8.TabIndex = 34;
-            iconButton8.Text = "Modificar";
-            iconButton8.UseVisualStyleBackColor = true;
-            // 
-            // iconButton9
-            // 
-            iconButton9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton9.ForeColor = SystemColors.ControlText;
-            iconButton9.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            iconButton9.IconColor = Color.Black;
-            iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton9.IconSize = 20;
-            iconButton9.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton9.Location = new Point(330, 200);
-            iconButton9.Margin = new Padding(3, 2, 3, 2);
-            iconButton9.Name = "iconButton9";
-            iconButton9.Size = new Size(127, 38);
-            iconButton9.TabIndex = 33;
-            iconButton9.Text = "Agregar";
-            iconButton9.UseVisualStyleBackColor = true;
-            // 
-            // dataGridItinerary
-            // 
-            dataGridItinerary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridItinerary.Location = new Point(274, 248);
-            dataGridItinerary.Name = "dataGridItinerary";
-            dataGridItinerary.Size = new Size(523, 161);
-            dataGridItinerary.TabIndex = 32;
-            // 
-            // iconButton10
-            // 
-            iconButton10.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton10.ForeColor = SystemColors.ControlText;
-            iconButton10.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            iconButton10.IconColor = Color.Black;
-            iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton10.IconSize = 20;
-            iconButton10.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton10.Location = new Point(629, 199);
-            iconButton10.Margin = new Padding(3, 2, 3, 2);
-            iconButton10.Name = "iconButton10";
-            iconButton10.Size = new Size(127, 38);
-            iconButton10.TabIndex = 35;
-            iconButton10.Text = "Eliminar";
-            iconButton10.UseVisualStyleBackColor = true;
-            // 
-            // iconButton11
-            // 
-            iconButton11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton11.ForeColor = SystemColors.ControlText;
-            iconButton11.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            iconButton11.IconColor = Color.Black;
-            iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton11.IconSize = 20;
-            iconButton11.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton11.Location = new Point(482, 199);
-            iconButton11.Margin = new Padding(3, 2, 3, 2);
-            iconButton11.Name = "iconButton11";
-            iconButton11.Size = new Size(127, 38);
-            iconButton11.TabIndex = 34;
-            iconButton11.Text = "Modificar";
-            iconButton11.UseVisualStyleBackColor = true;
-            // 
-            // iconButton12
-            // 
-            iconButton12.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButton12.ForeColor = SystemColors.ControlText;
-            iconButton12.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            iconButton12.IconColor = Color.Black;
-            iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton12.IconSize = 20;
-            iconButton12.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton12.Location = new Point(331, 200);
-            iconButton12.Margin = new Padding(3, 2, 3, 2);
-            iconButton12.Name = "iconButton12";
-            iconButton12.Size = new Size(127, 38);
-            iconButton12.TabIndex = 33;
-            iconButton12.Text = "Agregar";
-            iconButton12.UseVisualStyleBackColor = true;
-            // 
-            // dataGridPaymentMethod
-            // 
-            dataGridPaymentMethod.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridPaymentMethod.Location = new Point(274, 248);
-            dataGridPaymentMethod.Name = "dataGridPaymentMethod";
-            dataGridPaymentMethod.Size = new Size(523, 161);
-            dataGridPaymentMethod.TabIndex = 32;
+            label4.AutoSize = true;
+            label4.Font = new Font("Lucida Handwriting", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ActiveCaptionText;
+            label4.Location = new Point(287, 142);
+            label4.Name = "label4";
+            label4.Size = new Size(145, 24);
+            label4.TabIndex = 32;
+            label4.Text = "Actividades";
             // 
             // MainMenuView
             // 
@@ -699,13 +375,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(845, 465);
+            ClientSize = new Size(900, 465);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnModificar);
             Controls.Add(sidebar);
-            Controls.Add(tabControl1);
+            Controls.Add(btnAgregar);
+            Controls.Add(pictureBox1);
             ForeColor = SystemColors.ControlLightLight;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(845, 465);
+            MaximumSize = new Size(900, 465);
             Name = "MainMenuView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pagina Principal";
@@ -713,21 +397,11 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)menubutton).EndInit();
-            tabControl1.ResumeLayout(false);
-            TabPageHotels.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridHotels).EndInit();
-            tabPageDestination.ResumeLayout(false);
-            tabPageActivity.ResumeLayout(false);
-            tabPageItinerary.ResumeLayout(false);
-            tabPagePaymentMethod.ResumeLayout(false);
-            TabPageHome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridDestination).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridActivity).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridItinerary).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridPaymentMethod).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -735,41 +409,22 @@
         private Panel panel1;
         private FontAwesome.Sharp.IconButton btnHome;
         private FontAwesome.Sharp.IconButton btnDestination;
-        private FontAwesome.Sharp.IconButton btnHotels;
-        private FontAwesome.Sharp.IconButton btnActivity;
+        private FontAwesome.Sharp.IconButton btnAdmin;
+        private FontAwesome.Sharp.IconButton btnClient;
         private Label label1;
         private FontAwesome.Sharp.IconPictureBox menubutton;
         private System.Windows.Forms.Timer sidebarTimer;
-        private TabControl tabControl1;
-        private TabPage TabPageHome;
-        private TabPage TabPageHotels;
         private FontAwesome.Sharp.IconButton btnItinerary;
-        private FontAwesome.Sharp.IconButton btnPaymentMethod;
-        private TabPage tabPageDestination;
-        private TabPage tabPageActivity;
-        private TabPage tabPageItinerary;
-        private TabPage tabPagePaymentMethod;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnModificar;
         private FontAwesome.Sharp.IconButton btnAgregar;
-        private DataGridView dataGridHotels;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private DataGridView dataGridDestination;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton iconButton6;
-        private DataGridView dataGridActivity;
-        private FontAwesome.Sharp.IconButton iconButton7;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private FontAwesome.Sharp.IconButton iconButton9;
-        private DataGridView dataGridItinerary;
-        private FontAwesome.Sharp.IconButton iconButton10;
-        private FontAwesome.Sharp.IconButton iconButton11;
-        private FontAwesome.Sharp.IconButton iconButton12;
-        private DataGridView dataGridPaymentMethod;
+        private FontAwesome.Sharp.IconButton btnClose;
+        private Panel panel2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

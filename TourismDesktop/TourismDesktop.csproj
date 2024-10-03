@@ -32,10 +32,12 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Json.Microsoft" Version="8.0.2">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
+    <PackageReference Include="Stripe.net" Version="46.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TourismBackend\TourismBackend.csproj" />
+    <ProjectReference Include="..\TourismServices\TourismServices.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +45,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReservationHotels\ReservationView.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 
