@@ -15,14 +15,13 @@ namespace TourismBackend.DataContext
         }
 
         // DbSets for your models in the specified order
-        public DbSet<pfActivity> pfActivities { get; set; }
         public DbSet<pfAdministrator> pfAdministrators { get; set; }
+        public DbSet<pfClient> pfClients { get; set; }
+        public DbSet<pfActivity> pfActivities { get; set; }
         public DbSet<pfDestination> pfDestinations { get; set; }
-        public DbSet<pfExpense> pfExpenses { get; set; }
         public DbSet<pfItinerary> pfItineraries { get; set; }
         public DbSet<pfReservation> pfReservations { get; set; }
         public DbSet<pfTransaction> pfTransactions { get; set; }
-        public DbSet<pfClient> pfClients { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -47,133 +46,6 @@ namespace TourismBackend.DataContext
                     Email = "martin_fernandez@example.com",
                     Phone = "3498479331",
                     RegistrationDate = DateTime.Now
-                }
-            );
-
-            // Seed data for pfDestinations
-            modelBuilder.Entity<pfDestination>().HasData(
-                new pfDestination
-                {
-                    ID = 1,
-                    Name = "Paris",
-                    Description = "City of love",
-                    Country = "France"
-
-                },
-                new pfDestination
-                {
-                    ID = 2,
-                    Name = "New York",
-                    Description = "The Big Apple",
-                    Country = "United States"
-                }
-            );
-
-            // Seed data for pfActivities
-            modelBuilder.Entity<pfActivity>().HasData(
-                new pfActivity
-                {
-                    ID = 1,
-                    ActivityName = "Visit the Eiffel Tower",
-                    Description = "Guided tour of the Eiffel Tower",
-                    Date = DateTime.Now,
-                    ItineraryID = 1
-                },
-                new pfActivity
-                {
-                    ID = 2,
-                    ActivityName = "Boat ride on the Hudson",
-                    Description = "Cruise on the Hudson River",
-                    Date = DateTime.Now,
-                    ItineraryID = 2
-                }
-            );
-
-            // Seed data for pfExpenses
-            modelBuilder.Entity<pfExpense>().HasData(
-                new pfExpense
-                {
-                    ID = 1,
-                    Amount = 100.00m,
-                    ExpenseCategory = ExpenseCategoryEnum.Accommodation,
-                    Description = "Hotel in Paris",
-                    Date = DateTime.Now,
-                    ItineraryID = 1
-                },
-                new pfExpense
-                {
-                    ID = 2,
-                    Amount = 50.00m,
-                    ExpenseCategory = ExpenseCategoryEnum.Food,
-                    Description = "Food in New York",
-                    Date = DateTime.Now,
-                    ItineraryID = 2
-                }
-            );
-
-            // Seed data for pfItineraries
-            modelBuilder.Entity<pfItinerary>().HasData(
-                new pfItinerary
-                {
-                    ID = 1,
-                    Destination = "Paris",
-                    DepartureDate = DateTime.Now.AddDays(7),
-                    ReturnDate = DateTime.Now.AddDays(14),
-                    Description = "Trip to Paris"
-                },
-                new pfItinerary
-                {
-                    ID = 2,
-                    Destination = "New York",
-                    DepartureDate = DateTime.Now.AddDays(21),
-                    ReturnDate = DateTime.Now.AddDays(28),
-                    Description = "Trip to New York"
-                }
-            );
-
-            // Seed data for pfReservations
-            modelBuilder.Entity<pfReservation>().HasData(
-                new pfReservation
-                {
-                    ID = 1,
-                    ClientID = 1,
-                    ItineraryID = 1,
-                    ReservationDate = DateTime.Now,
-                    ReservationStatus = ReservationStatusEnum.Confirmed
-                }
-            );
-
-            // Seed data for pfTransactions
-            modelBuilder.Entity<pfTransaction>().HasData(
-                new pfTransaction
-                {
-                    ID = 1,
-                    Amount = 1500.00m,
-                    Date = DateTime.Now,
-                    ClientID = 1,
-                    ItineraryID = 1,
-                    PaymentConfirmation = PaymentConfirmationEnum.Confirmed,
-                    PaymentMethod = PaymentMethodEnum.CreditCard
-                },
-                new pfTransaction
-                {
-                    ID = 2,
-                    Amount = 2000.00m,
-                    Date = DateTime.Now,
-                    ClientID = 2,
-                    ItineraryID = 2,
-                    PaymentConfirmation = PaymentConfirmationEnum.Rejected,
-                    PaymentMethod = PaymentMethodEnum.DebitCard
-                },
-                new pfTransaction
-                {
-                    ID = 3,
-                    Amount = 500.00m,
-                    Date = DateTime.Now,
-                    ClientID = 3,
-                    ItineraryID = 1,
-                    PaymentConfirmation = PaymentConfirmationEnum.Refunded,
-                    PaymentMethod = PaymentMethodEnum.BankTransfer
                 }
             );
 
@@ -225,12 +97,123 @@ namespace TourismBackend.DataContext
                     PhoneNumber = "7891234560"
                 }
             );
+            // Seed data for pfActivity
+            modelBuilder.Entity<pfActivity>().HasData(
+                new pfActivity
+                {
+                    ID = 1,
+                    ActivityName = "Eiffel Tower Visit",
+                    Description = "Guided tour of the Eiffel Tower",
+                    Duration = 3, // in hours
+                    Cost = 30.00m,
+                    URLimage = "https://imgs.search.brave.com/ifM8jJudxdlseBcPdMm8ql0MWz9JgP3R1sugQ7Q2WzA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3VsdHVyYWdlbmlh/bC5jb20vZXMvaW1h/Z2VuZXMvdG9ycmUt/ZWlmZmVsLWNrZS5q/cGc_Y2xhc3M9YXJ0/aWNsZQ"
+                },
+                new pfActivity
+                {
+                    ID = 2,
+                    ActivityName = "Hudson River Cruise",
+                    Description = "Boat tour along the Hudson River",
+                    Duration = 2, // in hours
+                    Cost = 50.00m,
+                    URLimage = "https://imgs.search.brave.com/zuhiGpSpdxrdQSGxmpnztHWQX-jfCQUae6Xa0mzj9Q8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hY2xt/ZWRpYS5henVyZWVk/Z2UubmV0L2Ntc21l/ZGlhL2xpYnJhcmll/cy9hY2wvaW1hZ2Vz/L2NydWlzZXMvaHVk/c29uLXJpdmVyLWNy/dWlzZXMvYWNsX3dl/YnNpdGVfNzAweDUw/MF9odWRzb25fY3J1/aXNpbmdfb3ZlcnZp/ZXcyLmpwZz9leHQ9/LmpwZw"
+                }
+            );
 
+            // Seed data for pfDestination
+            modelBuilder.Entity<pfDestination>().HasData(
+                new pfDestination
+                {
+                    ID = 1,
+                    Name = "Paris",
+                    Country = "France",
+                    Description = "The City of Lights",
+                    URL_image = "https://imgs.search.brave.com/ifM8jJudxdlseBcPdMm8ql0MWz9JgP3R1sugQ7Q2WzA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3VsdHVyYWdlbmlh/bC5jb20vZXMvaW1h/Z2VuZXMvdG9ycmUt/ZWlmZmVsLWNrZS5q/cGc_Y2xhc3M9YXJ0/aWNsZQ",
+                    CategoryName = "City",
+                },
+                new pfDestination
+                {
+                    ID = 2,
+                    Name = "New York",
+                    Country = "USA",
+                    Description = "The Big Apple",
+                    URL_image = "https://www.travel-guide.es/media/new-york.jpeg",
+                    CategoryName = "City",
+                }
+            );
 
-            OnModelCreatingPartial(modelBuilder);
+            // Seed data for pfItinerary
+            modelBuilder.Entity<pfItinerary>().HasData(
+                new pfItinerary
+                {
+                    ID = 1,
+                    Name = "Paris",
+                    DestinationID = 1, // FK to pfDestination
+                    DepartureDate = DateTime.Now.AddDays(7),
+                    ReturnDate = DateTime.Now.AddDays(14),
+                    Description = "Trip to Paris"
+                },
+                new pfItinerary
+                {
+                    ID = 2,
+                    Name = "New York",
+                    DestinationID = 2, // FK to pfDestination
+                    DepartureDate = DateTime.Now.AddDays(21),
+                    ReturnDate = DateTime.Now.AddDays(28),
+                    Description = "Trip to New York"
+                }
+            );
+
+            // Seed data for pfReservation
+            modelBuilder.Entity<pfReservation>().HasData(
+                new pfReservation
+                {
+                    ID = 1,
+                    ClientID = 1, // FK to pfClient
+                    ItineraryID = 1, // FK to pfItinerary
+                    ReservationDate = DateTime.Now,
+                    ReservationStatus = ReservationStatusEnum.Confirmed
+                },
+                new pfReservation
+                {
+                    ID = 2,
+                    ClientID = 2, // FK to pfClient
+                    ItineraryID = 2, // FK to pfItinerary
+                    ReservationDate = DateTime.Now,
+                    ReservationStatus = ReservationStatusEnum.Pending
+                }
+            );
+
+            // Seed data for pfTransaction
+            modelBuilder.Entity<pfTransaction>().HasData(
+                new pfTransaction
+                {
+                    ID = 1,
+                    Amount = 1500.00m,
+                    TransactionDate = DateTime.Now,
+                    ClientID = 1, // FK to pfClient
+                    PaymentConfirmation = PaymentConfirmationEnum.Confirmed,
+                    PaymentMethod = PaymentMethodEnum.CreditCard
+                },
+                new pfTransaction
+                {
+                    ID = 2,
+                    Amount = 2000.00m,
+                    TransactionDate = DateTime.Now,
+                    ClientID = 2, // FK to pfClient
+                    PaymentConfirmation = PaymentConfirmationEnum.Rejected,
+                    PaymentMethod = PaymentMethodEnum.CreditCard
+                },
+                new pfTransaction
+                {
+                    ID = 3,
+                    Amount = 500.00m,
+                    TransactionDate = DateTime.Now,
+                    ClientID = 1, // FK to pfClient
+                    PaymentConfirmation = PaymentConfirmationEnum.Refunded,
+                    PaymentMethod = PaymentMethodEnum.PayPal
+                }
+            );
 
         }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

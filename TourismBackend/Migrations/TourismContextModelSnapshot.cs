@@ -34,15 +34,19 @@ namespace TourismBackend.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
+                    b.Property<decimal>("Cost")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("ItineraryID")
+                    b.Property<int>("Duration")
                         .HasColumnType("int");
+
+                    b.Property<string>("URLimage")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("ID");
 
@@ -52,18 +56,20 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            ActivityName = "Visit the Eiffel Tower",
-                            Date = new DateTime(2024, 9, 25, 19, 26, 56, 103, DateTimeKind.Local).AddTicks(9899),
+                            ActivityName = "Eiffel Tower Visit",
+                            Cost = 30.00m,
                             Description = "Guided tour of the Eiffel Tower",
-                            ItineraryID = 1
+                            Duration = 3,
+                            URLimage = "https://imgs.search.brave.com/ifM8jJudxdlseBcPdMm8ql0MWz9JgP3R1sugQ7Q2WzA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3VsdHVyYWdlbmlh/bC5jb20vZXMvaW1h/Z2VuZXMvdG9ycmUt/ZWlmZmVsLWNrZS5q/cGc_Y2xhc3M9YXJ0/aWNsZQ"
                         },
                         new
                         {
                             ID = 2,
-                            ActivityName = "Boat ride on the Hudson",
-                            Date = new DateTime(2024, 9, 25, 19, 26, 56, 103, DateTimeKind.Local).AddTicks(9902),
-                            Description = "Cruise on the Hudson River",
-                            ItineraryID = 2
+                            ActivityName = "Hudson River Cruise",
+                            Cost = 50.00m,
+                            Description = "Boat tour along the Hudson River",
+                            Duration = 2,
+                            URLimage = "https://imgs.search.brave.com/zuhiGpSpdxrdQSGxmpnztHWQX-jfCQUae6Xa0mzj9Q8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hY2xt/ZWRpYS5henVyZWVk/Z2UubmV0L2Ntc21l/ZGlhL2xpYnJhcmll/cy9hY2wvaW1hZ2Vz/L2NydWlzZXMvaHVk/c29uLXJpdmVyLWNy/dWlzZXMvYWNsX3dl/YnNpdGVfNzAweDUw/MF9odWRzb25fY3J1/aXNpbmdfb3ZlcnZp/ZXcyLmpwZz9leHQ9/LmpwZw"
                         });
                 });
 
@@ -106,7 +112,7 @@ namespace TourismBackend.Migrations
                             LastName = "Fernandez",
                             Name = "Martin",
                             Phone = "3498479331",
-                            RegistrationDate = new DateTime(2024, 9, 25, 19, 26, 56, 103, DateTimeKind.Local).AddTicks(9721)
+                            RegistrationDate = new DateTime(2024, 10, 10, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2623)
                         });
                 });
 
@@ -117,6 +123,9 @@ namespace TourismBackend.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("DateRecorded")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Document")
                         .IsRequired()
@@ -146,6 +155,7 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
+                            DateRecorded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "123456789",
                             Email = "client1@example.com",
                             FirstName = "Client1",
@@ -155,6 +165,7 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 2,
+                            DateRecorded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "987654321",
                             Email = "client2@example.com",
                             FirstName = "Client2",
@@ -164,6 +175,7 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 3,
+                            DateRecorded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "456789123",
                             Email = "client3@example.com",
                             FirstName = "Client3",
@@ -173,6 +185,7 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 4,
+                            DateRecorded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "321654987",
                             Email = "client4@example.com",
                             FirstName = "Client4",
@@ -182,6 +195,7 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 5,
+                            DateRecorded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "789123456",
                             Email = "client5@example.com",
                             FirstName = "Client5",
@@ -198,6 +212,10 @@ namespace TourismBackend.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Country")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -210,6 +228,10 @@ namespace TourismBackend.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("URL_image")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("ID");
 
                     b.ToTable("pfDestinations");
@@ -218,65 +240,20 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
+                            CategoryName = "City",
                             Country = "France",
-                            Description = "City of love",
-                            Name = "Paris"
+                            Description = "The City of Lights",
+                            Name = "Paris",
+                            URL_image = "https://imgs.search.brave.com/ifM8jJudxdlseBcPdMm8ql0MWz9JgP3R1sugQ7Q2WzA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3VsdHVyYWdlbmlh/bC5jb20vZXMvaW1h/Z2VuZXMvdG9ycmUt/ZWlmZmVsLWNrZS5q/cGc_Y2xhc3M9YXJ0/aWNsZQ"
                         },
                         new
                         {
                             ID = 2,
-                            Country = "United States",
+                            CategoryName = "City",
+                            Country = "USA",
                             Description = "The Big Apple",
-                            Name = "New York"
-                        });
-                });
-
-            modelBuilder.Entity("TourismServices.Models.pfExpense", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("ExpenseCategory")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ItineraryID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("pfExpenses");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Amount = 100.00m,
-                            Date = new DateTime(2024, 9, 25, 19, 26, 56, 103, DateTimeKind.Local).AddTicks(9965),
-                            Description = "Hotel in Paris",
-                            ExpenseCategory = 0,
-                            ItineraryID = 1
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Amount = 50.00m,
-                            Date = new DateTime(2024, 9, 25, 19, 26, 56, 103, DateTimeKind.Local).AddTicks(9968),
-                            Description = "Food in New York",
-                            ExpenseCategory = 1,
-                            ItineraryID = 2
+                            Name = "New York",
+                            URL_image = "https://www.travel-guide.es/media/new-york.jpeg"
                         });
                 });
 
@@ -295,7 +272,10 @@ namespace TourismBackend.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Destination")
+                    b.Property<int>("DestinationID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -310,18 +290,20 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            DepartureDate = new DateTime(2024, 10, 2, 19, 26, 56, 103, DateTimeKind.Local).AddTicks(9993),
+                            DepartureDate = new DateTime(2024, 10, 17, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2885),
                             Description = "Trip to Paris",
-                            Destination = "Paris",
-                            ReturnDate = new DateTime(2024, 10, 9, 19, 26, 56, 103, DateTimeKind.Local).AddTicks(9998)
+                            DestinationID = 1,
+                            Name = "Paris",
+                            ReturnDate = new DateTime(2024, 10, 24, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2891)
                         },
                         new
                         {
                             ID = 2,
-                            DepartureDate = new DateTime(2024, 10, 16, 19, 26, 56, 104, DateTimeKind.Local),
+                            DepartureDate = new DateTime(2024, 10, 31, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2894),
                             Description = "Trip to New York",
-                            Destination = "New York",
-                            ReturnDate = new DateTime(2024, 10, 23, 19, 26, 56, 104, DateTimeKind.Local).AddTicks(1)
+                            DestinationID = 2,
+                            Name = "New York",
+                            ReturnDate = new DateTime(2024, 11, 7, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2894)
                         });
                 });
 
@@ -332,9 +314,6 @@ namespace TourismBackend.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<int>("AdministratorID")
-                        .HasColumnType("int");
 
                     b.Property<int>("ClientID")
                         .HasColumnType("int");
@@ -356,11 +335,18 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            AdministratorID = 0,
                             ClientID = 1,
                             ItineraryID = 1,
-                            ReservationDate = new DateTime(2024, 9, 25, 19, 26, 56, 104, DateTimeKind.Local).AddTicks(31),
+                            ReservationDate = new DateTime(2024, 10, 10, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2922),
                             ReservationStatus = 0
+                        },
+                        new
+                        {
+                            ID = 2,
+                            ClientID = 2,
+                            ItineraryID = 2,
+                            ReservationDate = new DateTime(2024, 10, 10, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2924),
+                            ReservationStatus = 1
                         });
                 });
 
@@ -372,19 +358,10 @@ namespace TourismBackend.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("AdministratorID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(65,30)");
 
                     b.Property<int>("ClientID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("ItineraryID")
                         .HasColumnType("int");
 
                     b.Property<int>("PaymentConfirmation")
@@ -392,6 +369,9 @@ namespace TourismBackend.Migrations
 
                     b.Property<int>("PaymentMethod")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("TransactionDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
@@ -401,35 +381,29 @@ namespace TourismBackend.Migrations
                         new
                         {
                             ID = 1,
-                            AdministratorID = 0,
                             Amount = 1500.00m,
                             ClientID = 1,
-                            Date = new DateTime(2024, 9, 25, 19, 26, 56, 104, DateTimeKind.Local).AddTicks(54),
-                            ItineraryID = 1,
                             PaymentConfirmation = 1,
-                            PaymentMethod = 1
+                            PaymentMethod = 1,
+                            TransactionDate = new DateTime(2024, 10, 10, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2950)
                         },
                         new
                         {
                             ID = 2,
-                            AdministratorID = 0,
                             Amount = 2000.00m,
                             ClientID = 2,
-                            Date = new DateTime(2024, 9, 25, 19, 26, 56, 104, DateTimeKind.Local).AddTicks(141),
-                            ItineraryID = 2,
                             PaymentConfirmation = 2,
-                            PaymentMethod = 2
+                            PaymentMethod = 1,
+                            TransactionDate = new DateTime(2024, 10, 10, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2953)
                         },
                         new
                         {
                             ID = 3,
-                            AdministratorID = 0,
                             Amount = 500.00m,
-                            ClientID = 3,
-                            Date = new DateTime(2024, 9, 25, 19, 26, 56, 104, DateTimeKind.Local).AddTicks(144),
-                            ItineraryID = 1,
+                            ClientID = 1,
                             PaymentConfirmation = 3,
-                            PaymentMethod = 3
+                            PaymentMethod = 4,
+                            TransactionDate = new DateTime(2024, 10, 10, 14, 1, 32, 542, DateTimeKind.Local).AddTicks(2955)
                         });
                 });
 #pragma warning restore 612, 618
